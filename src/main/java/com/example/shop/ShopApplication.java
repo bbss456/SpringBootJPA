@@ -11,5 +11,6 @@ public class ShopApplication {
 		hello.setData("asd");
 		System.out.println(hello.getData());
 		SpringApplication.run(ShopApplication.class,args);
+
 	}
 }
