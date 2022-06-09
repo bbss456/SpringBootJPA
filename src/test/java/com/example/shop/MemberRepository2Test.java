@@ -13,9 +13,10 @@ import static org.hamcrest.Matchers.equalTo;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-class MemberRepositoryTest {
+class MemberRepository2Test {
 
-    @Autowired MemberRepository memberRepository;
+    @Autowired
+    MemberRepository2 memberRepository;
 
     @Test
     @Transactional

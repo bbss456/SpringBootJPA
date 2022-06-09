@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @Repository
-public class MemberRepository {
+public class MemberRepository2 {
 
     @PersistenceContext
     private EntityManager em;
