@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 화면 샘플 - Bootstrap</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <style>
+    .input-form {
+      max-width: 680px;
+
+      margin-top: 80px;
+      padding: 32px;
+
+      background: #fff;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+      -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+      -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+      box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
+    }
+  </style>
+</head>
+
+<body>
+<div th:replace="fragments/header :: header">-- thymeleaf header will be inserted here. --</div>
+<div class="container">
+    <div class="input-form-backgroud row">
+        <div class="input-form col-md-12 mx-auto">
+            <h4 class="mb-3">회원가입</h4>
+            <form class="validation-form" novalidate>
+
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="name" placeholder="사용하실 ID" value="" required>
+                    <div class="invalid-feedback">
+
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="nickname" placeholder="이름" value="" required>
+                    <div class="invalid-feedback">
+
+                    </div>
+                </div>
+
+
+                <div class="mb-3">
+                    <input type="password" class="form-control" id="pwd" placeholder="비밀번호 입력" required>
+                    <div class="invalid-feedback">
+
+                    </div>
+                </div>
+<!--                form-control-->
+                <div class="mb-3">
+                    <input type="password" class="form-control" id="pwdcheck"   placeholder="비밀번호 다시 입력" required />
+                    <div class="invalid-feedback">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <input type="text" class="form-control" id="Rregistration_number1" placeholder="4자리" required   maxlength='4'>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <select class="custom-select d-block " id="Rregistration_number2" >
+                            <option value="" selected>월</option>
+                            <option>01월</option>
+                            <option>02월</option>
+                            <option>03월</option>
+                            <option>04월</option>
+                            <option>05월</option>
+                            <option>06월</option>
+                            <option>07월</option>
+                            <option>08월</option>
+                            <option>09월</option>
+                            <option>10월</option>
+                            <option>11월</option>
+                            <option>12월</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <input type="text" class="form-control" id="Rregistration_number3" placeholder="일" required maxlength='2'>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+                    <div class="invalid-feedback">
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="phone" placeholder="전화번호" required maxlength="13">
+                    <div class="invalid-feedback">
+
+                    </div>
+                </div>
+
+                <hr class="mb-4">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="aggrement" required>
+                    <label class="custom-control-label" for="aggrement">개인정보 수집 및 이용에 동의합니다.</label>
+                </div>
+                <div class="mb-4"></div>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">가입 완료</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript" th:src="@{/js/membersave.js}"></script>
+<script>
+
+</script>
+</body>
+
+</html>

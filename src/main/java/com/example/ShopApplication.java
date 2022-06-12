@@ -1,5 +1,6 @@
-package com.example.shop;
+package com.example;
 
+import com.example.shop.Hello1;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -8,9 +9,8 @@ public class ShopApplication {
 
 	public static void main(String[] args){
 		Hello1 hello = new Hello1();
-		hello.setData("asd");
-		System.out.println(hello.getData());
 		SpringApplication.run(ShopApplication.class,args);
 
 	}
+
 }

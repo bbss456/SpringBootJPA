@@ -1,0 +1,17 @@
+html,body{background:#ddd}
+.outer{width:400px;height:150px;background:pink}
+.inner{width:150px;height:150px;background:black;color:white}
+
+
+/* 가운데 정렬 */
+.outer {
+  text-align: center;
+}
+
+.inner {
+  display: inline-block;
+}
+
+/* absolute */
+.outer,.inner {position:relative}
+.absolute {position:absolute;bottom:0;right:0}

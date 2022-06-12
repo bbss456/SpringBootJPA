@@ -1,5 +1,6 @@
 package com.example.shop;
 
+import com.example.ShopApplication;
 import org.springframework.boot.SpringApplication;
 
 public class test {

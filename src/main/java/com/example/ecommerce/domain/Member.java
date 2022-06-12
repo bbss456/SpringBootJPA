@@ -3,28 +3,29 @@ package com.example.ecommerce.domain;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Generated;
+import org.hibernate.annotations.GenerationTime;
 import org.springframework.data.annotation.CreatedDate;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 
 @Entity
 @Getter @Setter
-public class Member {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private  String id;
+public class Member {
+
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    private  String member_id;
 
     private  String name;
 
     private  String pwd;
 
-    private  String sex;;
+    private String Rregistration_number ;
 
     private  String phone;
 
@@ -33,8 +34,9 @@ public class Member {
     private  String region;
 
     //List<Orders> order = new ArrayList<>();
-
     @CreatedDate
+    @Generated(GenerationTime.INSERT)
+    @Column
     private LocalDate regdata ;
 
 }
