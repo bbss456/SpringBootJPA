@@ -1,13 +1,21 @@
+
+
+
+
   window.addEventListener('load', () => {
       const forms = document.getElementsByClassName('validation-form');
 
       Array.prototype.filter.call(forms, (form) => {
         form.addEventListener('submit', function (event) {
+          var s = document.getElementById('Rregistration_number2');
+          var selvalue =s.options[s.selectedIndex].value;
+
+          console.log(selvalue);
+
           if (form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
           }
-
           form.classList.add('was-validated');
         }, false);
       });
@@ -43,7 +51,6 @@
          }
 
     var pwdcheck = document.getElementById('pwdcheck')
-
     pwdcheck.addEventListener("keyup",  function(event)
     {
          var pwd = document.getElementById('pwd').value;
