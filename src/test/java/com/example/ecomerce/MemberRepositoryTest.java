@@ -35,7 +35,7 @@ class MemberRepositoryTest {
         member.setRegdata(now);
 
         //when
-       Long saveID =MemberRepository.save(member);
+       String saveID =MemberRepository.save(member);
 //    //then
 //        assertThat(findMember.getId(),equalTo(member.getId())) ;
 //        assertThat(findMember.getUsername(),equalTo(member.getUsername())) ;

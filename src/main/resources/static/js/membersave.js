@@ -9,7 +9,6 @@
         form.addEventListener('submit', function (event) {
           var s = document.getElementById('Rregistration_number2');
           var selvalue =s.options[s.selectedIndex].value;
-
           console.log(selvalue);
 
           if (form.checkValidity() === false) {
