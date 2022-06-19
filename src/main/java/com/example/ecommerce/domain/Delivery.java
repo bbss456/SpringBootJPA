@@ -1,0 +1,25 @@
+package com.example.ecommerce.domain;
+
+
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
+
+@Entity
+@Setter @Getter
+public class Delivery {
+
+    @Id @GeneratedValue
+    @Column(name ="delivery_id")
+    private Long id;
+
+    @OneToOne(mappedBy ="delivery",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    private Order order;
+
+    @Embedded
+    private  Address address;
+
+    @Enumerated(EnumType.STRING)
+    private DeliveryStatus status;
+}
