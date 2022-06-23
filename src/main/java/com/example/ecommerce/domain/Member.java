@@ -25,8 +25,6 @@ public class Member {
 
     private  String pwd;
 
-    private String registration_number ;
-
     private  String phone;
 
     private  String email;

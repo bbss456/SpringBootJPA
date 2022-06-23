@@ -20,6 +20,7 @@ public class Item {
 
  private int price ;
 
+ private int ItemCount;
  @OneToMany(mappedBy = "items",fetch = FetchType.LAZY ,cascade = CascadeType.ALL)
  List<OrderItem> OrderItems = new ArrayList<>();
 
