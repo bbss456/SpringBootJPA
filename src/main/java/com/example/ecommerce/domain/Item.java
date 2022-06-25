@@ -13,7 +13,7 @@ import java.util.List;
 public class Item {
 
  @Id @GeneratedValue
- @Column(name = "ItemOID")
+ @Column(name = "itemoid")
  private Long  id;
 
  private String name;
