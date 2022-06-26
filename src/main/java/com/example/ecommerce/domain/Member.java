@@ -3,13 +3,11 @@ package com.example.ecommerce.domain;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.Generated;
-import org.hibernate.annotations.GenerationTime;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -36,8 +34,8 @@ public class Member {
     List<Order> orders = new ArrayList<>();
 
     @CreatedDate
-    @Generated(GenerationTime.INSERT)
+    @Temporal(TemporalType.DATE)
     @Column
-    private LocalDate regdata ;
+    private Date regdata ;
 
 }

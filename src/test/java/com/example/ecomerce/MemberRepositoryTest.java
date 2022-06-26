@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import java.time.LocalDate;
-
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes =ShopApplication.class )
@@ -27,16 +25,13 @@ class MemberRepositoryTest {
 
         //Given
         Member member = new Member();
-        member.setName("Test");
-        member.setEmail("test@test");
-        member.setMember_id("Tes3t2");
-        LocalDate now = LocalDate.now();
-        System.out.println(now);
-        member.setRegdata(now);
+        member.setMember_id("bbss456");
+        member.setName("황현수");
+        member.setPwd("1234");
+        member.setEmail("bbss67117@gmail.com");
 
-        //when
-       String saveID =MemberRepository.save(member);
-//    //then
+
+
 //        assertThat(findMember.getId(),equalTo(member.getId())) ;
 //        assertThat(findMember.getUsername(),equalTo(member.getUsername())) ;
     }
