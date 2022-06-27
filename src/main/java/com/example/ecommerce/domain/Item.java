@@ -2,10 +2,11 @@ package com.example.ecommerce.domain;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -24,5 +25,8 @@ public class Item {
  @OneToMany(mappedBy = "items",fetch = FetchType.LAZY ,cascade = CascadeType.ALL)
  List<OrderItem> OrderItems = new ArrayList<>();
 
- private LocalDateTime DateTime; // 등록 날짜짜
+ @CreatedDate
+ @Temporal(TemporalType.DATE)
+ @Column
+ private Date regdata ;
 }
