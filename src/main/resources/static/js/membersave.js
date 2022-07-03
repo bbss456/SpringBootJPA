@@ -1,16 +1,11 @@
-
-
-
-
+  //전송 체크
   window.addEventListener('load', () => {
       const forms = document.getElementsByClassName('validation-form');
-
       Array.prototype.filter.call(forms, (form) => {
         form.addEventListener('submit', function (event) {
           var s = document.getElementById('Rregistration_number2');
           var selvalue =s.options[s.selectedIndex].value;
           console.log(selvalue);
-
           if (form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
@@ -19,8 +14,7 @@
         }, false);
       });
     }, false);
-
-
+//자동 전화번호 입력 수정
      function autoHypenPhone(str){
              str = str.replace(/[^0-9]/g, '');
              var tmp = '';
@@ -48,7 +42,7 @@
              }
              return str;
          }
-
+//비밀 번호 체크 확인
     var pwdcheck = document.getElementById('pwdcheck')
     pwdcheck.addEventListener("keyup",  function(event)
     {
@@ -60,7 +54,6 @@
          }
          else{
          document.getElementById('pwdcheck').className = 'form-control is-invalid' ;
+
          }
-
-
     });

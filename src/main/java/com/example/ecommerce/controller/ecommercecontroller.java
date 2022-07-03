@@ -7,10 +7,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class ecommercecontroller {
 
-    @GetMapping("hello1")
-    public String hello(Model model) {
+    @GetMapping("/")
+    public String home(Model model) {
         model.addAttribute("data", "hello!!");
-        return "layout/membersave.html";
+        return "home.html";
     }
 
+    @GetMapping("/membersave")
+    public String membersave(Model model) {
+        model.addAttribute("data", "hello!!");
+        return "member/membersave.html";
+    }
 }

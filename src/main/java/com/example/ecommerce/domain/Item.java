@@ -1,5 +1,6 @@
 package com.example.ecommerce.domain;
 
+import com.example.ecommerce.NotEnoughStockException;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
@@ -29,4 +30,18 @@ public class Item {
  @Temporal(TemporalType.DATE)
  @Column
  private Date regdata ;
+
+
+
+ //==비즈니스 로직==//
+ public void addStock(int quantity) {
+  this.ItemCount += quantity;
+ }
+ public void removeStock(int quantity) {
+  int restStock = this.ItemCount - quantity;
+  if (restStock < 0) {
+   throw new NotEnoughStockException("need more stock");
+  }
+  this.ItemCount = restStock;
+ }
 }
