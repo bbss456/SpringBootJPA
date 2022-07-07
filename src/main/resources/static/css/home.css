@@ -1,0 +1,53 @@
+.modal {
+  background-color:rgba(0,0,0,.3);
+  //배경색과 투명도로 살짝 어둡지만 투명한 배경
+  //허공에 붕 떠있는 느낌을 주고 싶으면 안넣어도 무방
+  justify-content:center; //수평 중앙정렬
+  align-items:center;     //수직 중앙정렬
+  position:fixed;         // 포지션 픽스, 화면이 스크롤되더라도 고정되기 위함
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;               //모든 방향에 0을 주면 화면에 꽉차게 됩니다.
+  padding:15px;
+  display: none;  //반응형의 경우 padding이 없으면 박스가 화면에 붙어서 안이뻐짐
+  }
+
+.modalshow{
+   justify-content: center;
+   height:100%;
+   display: flex;
+   align-items: center;
+   background-color:rgba(0,0,0,.3);
+   position:fixed; // 포지션 픽스, 화면이 스크롤되더라도 고정되기 위함
+   top:0;
+   left:0;
+   right:0;
+   bottom:0;               //모든 방향에 0을 주면 화면에 꽉차게 됩니다.
+   padding:15px;
+}
+
+  .modal_body {
+    display : flex;
+    width: 70%;
+    flex-direction: column;
+    height: 70%;  //헤드 영역 높이
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+
+  }
+
+  .inmodal_header{
+     text-align: right;
+     padding-right: 5px;
+  }
+  .inmodal_img{
+    background-color: rgb(255, 115, 231);
+  }
+  .inmodal_btn{
+  background-color: rgb(255,31,255);
+  }
+  .inmodal_input{
+  background-color: rgb(31,21,33);
+  }
