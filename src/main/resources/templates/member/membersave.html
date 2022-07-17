@@ -40,24 +40,24 @@
     <div class="input-form-backgroud row">
         <div class="input-form col-md-12 mx-auto">
             <h4 class="mb-3">회원가입</h4>
-            <form class="validation-form" novalidate>
+            <form class="validation-form" novalidate action="/post-membersave" method="post">
 
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="name" placeholder="사용하실 ID" value="" required>
+                    <input type="text" class="form-control" id="name" name="id" placeholder="ID" value="" required>
                     <div class="invalid-feedback">
 
                     </div>
                 </div>
 
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="nickname" placeholder="이름" value="" required>
+                    <input type="text" class="form-control" id="nickname" name="name" placeholder="이름" value="" required>
                     <div class="invalid-feedback">
 
                     </div>
                 </div>
 
                 <div class="mb-3">
-                    <input type="password" class="form-control" id="pwd" placeholder="비밀번호 입력" required>
+                    <input type="password" class="form-control" id="pwd" name="pwd" placeholder="비밀번호 입력" required>
                     <div class="invalid-feedback">
 
                     </div>
@@ -71,10 +71,10 @@
 
                 <div class="row">
                     <div class="col-md-4 mb-3">
-                        <input type="text" class="form-control" id="Rregistration_number1" placeholder="4자리" required   maxlength='4'>
+                        <input type="text" class="form-control" id="Rregistration_number1" name="year" placeholder="4자리" required   maxlength='4'>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <select class="custom-select d-block " id="Rregistration_number2"  placeholder="월">
+                        <select class="custom-select d-block " id="Rregistration_number2" name="month" placeholder="월">
 
                             <option>01월</option>
                             <option>02월</option>
@@ -91,25 +91,25 @@
                         </select>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <input type="text" class="form-control" id="Rregistration_number3" placeholder="일" required maxlength='2'>
+                        <input type="text" class="form-control" id="Rregistration_number3" name="day" placeholder="일" required maxlength='2'>
                     </div>
                 </div>
 
                 <div class="mb-3">
-                    <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required>
                     <div class="invalid-feedback">
                     </div>
                 </div>
 
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control col-md-2">
+                    <input type="text" class="form-control col-md-2" id="city" name="city" placeholder="서울">
                     <div    class="invalid-feedback"> </div>
-                    <input type="text" class="form-control col-md-8"  placeholder="구,동,읍 및 상세주소" >
-                    <input type="text" class="form-control col-md-2"  placeholder="우편번호" value="-">
+                    <input type="text" class="form-control col-md-8"  id="street" name="street" placeholder="구,동,읍 및 상세주소" >
+                    <input type="text" class="form-control col-md-2" id="zipcode" name="zipcode"  placeholder="우편번호" value="-">
                 </div>
 
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="phone" placeholder="전화번호" required maxlength="13">
+                    <input type="text" class="form-control" id="phone" name="phone" placeholder="전화번호" required maxlength="13">
                     <div class="invalid-feedback">
                     </div>
                 </div>
@@ -124,7 +124,6 @@
             </form>
         </div>
     </div>
-
 </div>
 
 <script type="text/javascript" th:src="@{/js/membersave.js}"></script>

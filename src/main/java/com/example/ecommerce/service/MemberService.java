@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -41,5 +42,14 @@ public class MemberService {
     @Transactional(readOnly = true)
     public Member findOne(String memberID){
         return memberRepository.findOne(memberID);
+    }
+
+    @Transactional(readOnly = true)
+    public Member logincheck(HashMap<String, Object> map){
+        System.out.println("Service--->" + map);
+        String id = (String) map.get("id");
+        String pwd = (String) map.get("pwd");
+        System.out.println("Service--->" + id+ pwd);
+        return memberRepository.logincheck(id, pwd);
     }
 }

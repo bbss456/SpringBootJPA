@@ -25,6 +25,8 @@ public class Member {
 
     private  String phone;
 
+    private  String birthday;
+
     private  String email;
 
     @Embedded

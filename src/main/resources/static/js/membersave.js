@@ -5,12 +5,53 @@
         form.addEventListener('submit', function (event) {
           var s = document.getElementById('Rregistration_number2');
           var selvalue =s.options[s.selectedIndex].value;
-          console.log(selvalue);
+          var id = document.getElementById('name');
+          var name = document.getElementById('nickname');
+          var pwd = document.getElementById('pwd');
+          var year = document.getElementById('Rregistration_number1');
+          var month = document.getElementById('Rregistration_number2');
+          var day = document.getElementById('Rregistration_number3');
+          var email = document.getElementById('email');
+          var city = document.getElementById('city');
+          var street = document.getElementById('street');
+          var zipcode = document.getElementById('zipcode');
+          var phone = document.getElementById('phone');
+
           if (form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
           }
-          form.classList.add('was-validated');
+          else if (form.checkValidity() === true) {
+//             fetch("http://localhost:8080/post-membersave", {
+//                       method: "POST",
+//                       headers: {
+//                         "Content-Type": "application/json",
+//                       },
+//                         body: JSON.stringify({
+//                             id: id.value,
+//                             name : name.value,
+//                             pwd : pwd.value,
+//                             year : year.value,
+//                             month : month.value,
+//                             day : day.value,
+//                             email : email.value,
+//                             city : city.value,
+//                             street : street.value,
+//                             zipcode : zipcode.value,
+//                             phone : phone.value
+//                        }),
+//                     })
+//                    .then(response => response.json())
+//                    .then(response => {
+//                       if(res.statusCode == 200) {
+//                         console.log("회원 가입 정보 전송 완료");
+//                         location.href = "http://localhost:8080/";
+//                         alert("Success");
+//                       }
+//                     });
+          }
+
+        form.classList.add('was-validated');
         }, false);
       });
     }, false);

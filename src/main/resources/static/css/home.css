@@ -29,7 +29,7 @@
 
   .modal_body {
     display : flex;
-    width: 70%;
+    width: 40%;
     flex-direction: column;
     height: 70%;  //헤드 영역 높이
     background-color: rgb(255, 255, 255);
@@ -39,15 +39,68 @@
   }
 
   .inmodal_header{
+     background-color: white;
+     height : 5%;
      text-align: right;
      padding-right: 5px;
   }
   .inmodal_img{
-    background-color: rgb(255, 115, 231);
+    background-color: white;
+    height : 35%;
   }
   .inmodal_btn{
-  background-color: rgb(255,31,255);
+   height : 32%;
+   background-color : white;
   }
   .inmodal_input{
-  background-color: rgb(31,21,33);
+  width: 100%;
+  height: 28%;
+  display: flex;
+  background-color: white;
+  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+  }
+
+  #logo{
+    top: 30%;
+    position: absolute;
+    height: 33%;
+    margin: 0 auto;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .memberinput{
+   margin-top: 5px;
+   width: 90%;
+   margin-left: 4%;
+  }
+
+  .login_btn {
+    height: 24%;
+    background-color: white;
+    color: black;
+    border: 2px solid #c84ae8;
+    width: 90%;
+    margin-left: 4%;
+    transition-duration: 0.4s;
+  }
+  .login_btn:hover {
+
+    background-color: #c84ae8;
+    color: white;
+  }
+
+  .explantion_login{
+   display: flex;
+   align-content: center;
+   justify-content: center;
+   display: flex;
+   align-content: center;
+  }
+
+
+  .member_Explanation{
+   display: inline-block;
+   text-align: center;
   }
