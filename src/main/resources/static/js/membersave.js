@@ -21,35 +21,6 @@
             event.preventDefault();
             event.stopPropagation();
           }
-          else if (form.checkValidity() === true) {
-//             fetch("http://localhost:8080/post-membersave", {
-//                       method: "POST",
-//                       headers: {
-//                         "Content-Type": "application/json",
-//                       },
-//                         body: JSON.stringify({
-//                             id: id.value,
-//                             name : name.value,
-//                             pwd : pwd.value,
-//                             year : year.value,
-//                             month : month.value,
-//                             day : day.value,
-//                             email : email.value,
-//                             city : city.value,
-//                             street : street.value,
-//                             zipcode : zipcode.value,
-//                             phone : phone.value
-//                        }),
-//                     })
-//                    .then(response => response.json())
-//                    .then(response => {
-//                       if(res.statusCode == 200) {
-//                         console.log("회원 가입 정보 전송 완료");
-//                         location.href = "http://localhost:8080/";
-//                         alert("Success");
-//                       }
-//                     });
-          }
 
         form.classList.add('was-validated');
         }, false);

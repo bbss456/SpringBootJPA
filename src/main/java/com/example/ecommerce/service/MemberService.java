@@ -29,7 +29,7 @@ public class MemberService {
     }
 
     private void vaildateDuplicateMember(Member member) {
-        List<Member> findMembers = memberRepository.findByName(member.getMember_id());
+        List<Member> findMembers = memberRepository.findById(member.getMember_id());
         if(!findMembers.isEmpty()){
             throw new IllegalStateException("이미 존재하는 회원입니다.");
         }
@@ -43,13 +43,12 @@ public class MemberService {
     public Member findOne(String memberID){
         return memberRepository.findOne(memberID);
     }
-
+    
+    //로그인 체크 확인
     @Transactional(readOnly = true)
     public Member logincheck(HashMap<String, Object> map){
-        System.out.println("Service--->" + map);
         String id = (String) map.get("id");
         String pwd = (String) map.get("pwd");
-        System.out.println("Service--->" + id+ pwd);
         return memberRepository.logincheck(id, pwd);
     }
 }

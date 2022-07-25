@@ -8,14 +8,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.view.RedirectView;
 
+import javax.servlet.http.HttpSession;
 import java.util.Date;
-import java.util.HashMap;
 
 @Controller
-public class ecommercecontroller {
+public class logincontroller {
 
     @Autowired
     MemberService memberService;
@@ -31,6 +31,7 @@ public class ecommercecontroller {
                return "member/membersave.html";
     }
 
+    /*Fomr 으로 작성하여 일일이 Param으로 받음 */
     @PostMapping("/post-membersave")
     public String Postmembersave(@RequestParam("id") String id, @RequestParam("name") String name,
                                  @RequestParam("pwd") String pwd, @RequestParam("email") String email,
@@ -38,12 +39,8 @@ public class ecommercecontroller {
                                  @RequestParam("day") String day,@RequestParam("phone") String phone,
                                  @RequestParam("city") String city,@RequestParam("street") String street,
                                  @RequestParam("zipcode") String zipcode, Model model) throws Exception {
-        System.out.println("-------------------Post 요청-------------");
         Member member = new Member();
-
-
         String birthday = year +"-" + month + "-" + day;
-
         member.setMember_id(id);
         member.setName(name);
         member.setEmail(email);
@@ -53,17 +50,18 @@ public class ecommercecontroller {
         member.setRegdata(new Date());
         member.setAddress(new Address(city, street, zipcode));
         String result = memberService.join(member);
-
+        System.out.println(result);
+        /*
+        if( result == null ){
+            return "home.html";
+        }
+        */
         return "home.html";
     }
+    @GetMapping("/logout")
+    public RedirectView logout(Model model, HttpSession session) throws Exception {
+        session.invalidate();
 
-
-    @PostMapping("/login")
-    public String login(@RequestBody HashMap<String, Object> map, Model model) {
-        System.out.println(" controller" + map);
-        Member member = memberService.logincheck(map);
-        return "home.html";
+        return new RedirectView("/");
     }
-
-
 }

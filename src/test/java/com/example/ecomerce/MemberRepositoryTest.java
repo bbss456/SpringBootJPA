@@ -30,8 +30,6 @@ class MemberRepositoryTest {
         member.setPwd("1234");
         member.setEmail("bbss67117@gmail.com");
 
-
-
 //        assertThat(findMember.getId(),equalTo(member.getId())) ;
 //        assertThat(findMember.getUsername(),equalTo(member.getUsername())) ;
     }

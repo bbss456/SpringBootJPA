@@ -17,17 +17,20 @@
 
   </style>
 </head>
+
 <body>
 <div th:fragment="header">
-
-
   <div class="b-example-divider"  align="right" style="background-color: #E0E0E0;">
     <a class="" href="" style="color: #0c5460;font-size: 10px;">문의 사항</a>
-    <a class="" href="#" id="login"   style="color: #0c5460;font-size: 10px;">로그인</a>
-    <a class="" href="membersave" style="color: #0c5460;padding-right:1.0em;font-size: 10px;">회원 가입</a>
+    <a href="#" id="login"  th:if="${session.SID eq null}" style="color: #0c5460;font-size: 10px;">로그인</a>
+    <th:block th:unless="${session.SID eq null}">
+      <label th:text="${session.Name}" style="color: #0c5460;font-size: 10px;"></label>
+      <a th:href="@{/logout}" style="text-align:right; color: #0c5460; font-size: 10px; " >로그아웃</a>
+    </th:block>
+    <a class="" th:if="${session.SID eq null}" href="membersave" style="color: #0c5460;padding-right:1.0em;font-size: 10px;">회원 가입</a>
   </div>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
-    <a class="navbar-brand" href="#">EVERY WEAR</a>
+    <a class="navbar-brand" href="/">EVERY WEAR</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

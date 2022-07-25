@@ -33,14 +33,18 @@
 
 <div class="modal">
   <div class="modal_body">
-    <div class="inmodal_header"> <span class="iconify" data-icon="bi:x-lg"></span> </div>
+    <div class="inmodal_header">
+        <div id="exit" style="width: 16px; float: right;">
+        <span class="iconify" id="iconify" data-icon="bi:x-lg"></span>
+        </div>
+    </div>
     <div class="inmodal_img">
 
       <img id="logo" th:src="@{/images/logo.png}"/>
     </div>
     <div class="inmodal_input">
      <input id="id" class="memberinput" type="input" placeholder="아이디"></input>
-      <input id="pwd"class="memberinput" type="password" placeholder="비밀번호"></input>
+      <input id="pwd"class="memberinput" type="password" onkeyup="enterkey()" placeholder="비밀번호"></input>
     </div>
     <div class="inmodal_btn">
      <button id="btnlogin" type="button" class="login_btn" value="로그인" th:text="로그인" onclick="logincheck()" />
@@ -57,7 +61,8 @@
       const body = document.querySelector('body');
       const modal = document.querySelector('.modal');
       const btnlogin = document.getElementById('login');
-      var iconexit = document.querySelector('.iconify');
+      //var iconexit = document.querySelector('.inmodal_img');
+      var exit = document.getElementById('exit');
 
       var id_value = document.getElementById('id');
       var pwd_value = document.getElementById('pwd');
@@ -67,16 +72,15 @@
        modal.className='modalshow';
        console.log('로그인 버튼클릭');
       });
-
-      iconexit.addEventListener('click',() =>{
+   //모달 종료
+      exit.addEventListener('click',() =>{
+        id_value.value = null;
+        pwd_value.value = null;
         console.log('exit');
         modal.className='modal';
-
       });
-
+     // 로그인 체크
       function logincheck() {
-        console.log('login')
-        console.log(id_value.value);
         fetch("http://localhost:8080/login", {
           method: "POST",
           headers: {
@@ -87,12 +91,22 @@
             pwd: pwd_value.value,
           }),
         })
-       .then(function(res) {
-          if(res.statusCode == 200) {
-            console.log("전송 완료");
-          }
-        });
-        }
+      .then((response) => response.json())
+      .then((data) =>  {
+       console.log(data);
+       console.log(data.result);
+       if(data.result =="Success") {
+        window.location.href = "http://localhost:8080";
+       }
+       })
+     }
+     function enterkey(){
+        if (window.event.keyCode == 13) {
+                // 엔터키가 눌렸을 때
+                logincheck()
+            }
+     }
+
 
 
 </script>

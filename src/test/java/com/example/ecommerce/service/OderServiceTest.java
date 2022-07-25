@@ -27,11 +27,8 @@ class OderServiceTest {
     OrdersRepository ordersRepository;
     @Autowired
     OderService oderService;
-
-
     @PersistenceContext
     EntityManager em ;
-
 
     @Test
     @Rollback(value = false)
