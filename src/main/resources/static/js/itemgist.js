@@ -119,7 +119,7 @@ function itemsend(){
       for(var i =0; i < fileUpload.files.length; i++) {
         let fileobj = fileUpload.files[i];
         //fileNameList += fileobj.name;
-        formData.append('file', fileobj.name); // 필수 값 아닌 값 추가
+        formData.append("file_"+i, fileobj); // 필수 값 아닌 값 추가
         /*
         if(filecount !=i){
          fileNameList +='@'
@@ -131,7 +131,6 @@ function itemsend(){
 
     fetch("http://localhost:8080/api/itemregister", {
       method: "POST",
-
       body: formData,
      })
     .then((response) => response.json())
