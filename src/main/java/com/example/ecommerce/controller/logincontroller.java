@@ -3,6 +3,8 @@ package com.example.ecommerce.controller;
 import com.example.ecommerce.domain.Address;
 import com.example.ecommerce.domain.Member;
 import com.example.ecommerce.service.MemberService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +18,7 @@ import java.util.Date;
 
 @Controller
 public class logincontroller {
-
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
     MemberService memberService;
 

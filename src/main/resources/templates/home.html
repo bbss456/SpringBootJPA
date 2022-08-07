@@ -51,8 +51,9 @@
       <br/><br/>
        <div class="explantion_login" >
            <span class="member_Explanation" th:text="'회원이 아니신가요?'"></span>
-           <a id="href_login" href="#" class="" th:text="'회원가입'"></a>
+           <a id="href_login" th:href="@{/membersave}" class="" th:text="'회원가입'"></a>
        </div>
+        <div class="failresult"> </div>
     </div>
   </div>
 </div>
@@ -63,7 +64,7 @@
       const btnlogin = document.getElementById('login');
       //var iconexit = document.querySelector('.inmodal_img');
       var exit = document.getElementById('exit');
-
+      let  failresult = document.querySelector('.failresult');
       var id_value = document.getElementById('id');
       var pwd_value = document.getElementById('pwd');
 
@@ -97,14 +98,15 @@
        console.log(data.result);
        if(data.result =="Success") {
         window.location.href = "http://localhost:8080";
-       }
+         failresult.innerHTML =null;
+       } else { failresult.innerHTML = "회원 정보가 다릅니다.";}
        })
      }
      function enterkey(){
         if (window.event.keyCode == 13) {
                 // 엔터키가 눌렸을 때
-                logincheck()
-            }
+                logincheck();
+             }
      }
 
 

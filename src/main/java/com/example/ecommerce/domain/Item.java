@@ -22,6 +22,10 @@ public class Item {
 
  private int price ;
 
+ private String content ;
+
+ private String imgpath ;
+
  private int ItemCount;
  @OneToMany(mappedBy = "items",fetch = FetchType.LAZY ,cascade = CascadeType.ALL)
  List<OrderItem> OrderItems = new ArrayList<>();

@@ -99,6 +99,15 @@
    align-content: center;
   }
 
+  .failresult{
+     display: flex;
+     align-content: center;
+     justify-content: center;
+     display: flex;
+     align-content: center;
+     color: red;
+  }
+
 
   .member_Explanation{
    display: inline-block;
