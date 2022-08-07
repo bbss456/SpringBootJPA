@@ -17,6 +17,7 @@ public class itemapicontroller {
     @PostMapping("/api/itemregister")
     public String itemregister(Model model, MultipartHttpServletRequest req)  {
         String value = req.getParameter("name");
+        // https://caileb.tistory.com/152
         System.out.println(value);
         MultipartFile file = req.getFile("file_0");
         System.out.println(file.getName());
