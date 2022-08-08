@@ -23,3 +23,6 @@ spring:
 logging.level:
   org.hibernate.SQL: debug
 #  org.hibernate.type: trace
+
+external:
+  imgpath: C:\Study_hwang\SideProjectImg\

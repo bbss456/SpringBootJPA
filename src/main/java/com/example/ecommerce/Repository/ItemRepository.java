@@ -31,5 +31,8 @@ public class ItemRepository {
         return em.createQuery("select i from Item i where i.name =:name", Item.class).setParameter("name",name)
                 .getResultList();
     }
-
+    //마지막 ID 값 조회
+    public Long getLastId() {
+        return em.createQuery("select i from Item i order by i.id desc", Item.class).setMaxResults(1).getSingleResult().getId();
+    }
 }

@@ -112,22 +112,21 @@ function itemsend(){
      alert("필수항목을 입력하세요");
     }else{
 
-      //전송할  파일 목록
+      //전송할  파일 개수
       let filecount = fileUpload.files.length - 1;
-      //전송 할 파일 이름
 
       for(var i =0; i < fileUpload.files.length; i++) {
         let fileobj = fileUpload.files[i];
-        //fileNameList += fileobj.name;
-        formData.append("file_"+i, fileobj); // 필수 값 아닌 값 추가
-        /*
+        formData.append("file_"+i, fileobj); // 실제 데이터
+
+        fileNameList += fileobj.name;
         if(filecount !=i){
-         fileNameList +='@'
+         fileNameList +='@';
         }
-        */
       }
 
-    formData.append('content', category.value);   //  필수 값 아닌 값 추가
+    formData.append('fileNameList', fileNameList);
+    formData.append('content', content.value);   //  필수 값 아닌 값 추가
 
     fetch("http://localhost:8080/api/itemregister", {
       method: "POST",

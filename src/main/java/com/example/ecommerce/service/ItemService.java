@@ -32,4 +32,9 @@ public class ItemService {
     //이름 검색
     public List<Item> findItemone(Item item) {return itemRepository.findByName(item.getName());}
 
+    //마지막 ID값 얻기
+    public Long getLastId() {
+        return itemRepository.getLastId();
+    }
+
 }
