@@ -119,7 +119,7 @@ function itemsend(){
         let fileobj = fileUpload.files[i];
         formData.append("file_"+i, fileobj); // 실제 데이터
 
-        fileNameList += fileobj.name;
+        fileNameList += "file_"+i;
         if(filecount !=i){
          fileNameList +='@';
         }

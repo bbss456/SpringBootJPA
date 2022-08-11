@@ -5,7 +5,11 @@ import com.example.ecommerce.domain.Item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 @Service
@@ -36,5 +40,31 @@ public class ItemService {
     public Long getLastId() {
         return itemRepository.getLastId();
     }
+
+    public String FileSave(MultipartHttpServletRequest req,String dirpath) throws IOException {
+        try {
+            String fileNameList = req.getParameter("fileNameList"); //파일 key 이름 가져오기.
+            String[] ArryFileList = fileNameList.split("@");
+            /* 파일 저장 */
+            String ImgpathArry = "";
+            int count = 0;
+            for (String Filepath : ArryFileList ) {
+                MultipartFile file = req.getFile(Filepath);
+                String filename = file.getOriginalFilename();
+                ImgpathArry += dirpath+ File.separator+filename ;
+                if(count != ArryFileList.length-1 ){
+                    ImgpathArry += "@";
+                }
+                count +=1;
+                File f1 = new File( dirpath+File.separator +filename);
+                file.transferTo(f1);
+            }
+        return ImgpathArry;
+        }catch (Exception e){
+            return "Fail";
+        }
+
+    }
+
 
 }

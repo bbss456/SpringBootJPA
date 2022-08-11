@@ -72,9 +72,16 @@ class ItemServiceTest {
         }
 
     }
-    
-    
-    
+
+
+    @Test
+    @Rollback(value = false)
+    @Transactional(readOnly = true)
+    public void test() throws Exception {
+        String[] test = {"d","f","e"};
+        System.out.println(test.length);
+
+    }
     
     
 }

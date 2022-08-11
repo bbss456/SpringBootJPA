@@ -20,11 +20,14 @@ public class Item {
 
  private String name;
 
+ private String category ;
+
  private int price ;
 
  private String content ;
 
  private String imgpath ;
+
 
  private int ItemCount;
  @OneToMany(mappedBy = "items",fetch = FetchType.LAZY ,cascade = CascadeType.ALL)
