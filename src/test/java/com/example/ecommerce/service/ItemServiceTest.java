@@ -15,6 +15,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Date;
+import java.util.List;
 
 
 @ExtendWith(SpringExtension.class)
@@ -72,16 +73,39 @@ class ItemServiceTest {
         }
 
     }
-
-
     @Test
     @Rollback(value = false)
     @Transactional(readOnly = true)
     public void test() throws Exception {
         String[] test = {"d","f","e"};
         System.out.println(test.length);
+    }
+
+    @Test
+    @Rollback(value = false)
+    @Transactional(readOnly = true)
+    public void 전체조회() throws Exception {
+        //given
+        Item item = new Item();
+
+        //when
+        List<Item> itemList = itemService.findItems(item);
+
+        //then
+        System.out.println("item_id: " + itemList);
+
+//        for(int i=0; i<itemList.size(); i++){
+//          System.out.println(itemList.get(i).getId());
+//        }
+        for(Item item1 : itemList ) {
+            System.out.println(item1.getImgpath().split("@")[0]);
+        }
+    }
+    @Test
+    public void 단순_테스트() throws Exception {
+        String path = "C:\\Study_hwang\\Spring_ShopJPA\\shop\\src\\main\\resources\\static\\images\\7\\black-t-shirts-with-copy-space.jpg";
+        int a =  path.lastIndexOf("images");
+        System.out.println(path.substring(path.lastIndexOf("images")));
 
     }
-    
-    
 }

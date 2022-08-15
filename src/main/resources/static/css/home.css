@@ -11,7 +11,7 @@
   bottom:0;               //모든 방향에 0을 주면 화면에 꽉차게 됩니다.
   padding:15px;
   display: none;  //반응형의 경우 padding이 없으면 박스가 화면에 붙어서 안이뻐짐
-  }
+ }
 
 .modalshow{
    justify-content: center;
@@ -25,6 +25,7 @@
    right:0;
    bottom:0;               //모든 방향에 0을 주면 화면에 꽉차게 됩니다.
    padding:15px;
+   z-index: 1;
 }
 
   .modal_body {

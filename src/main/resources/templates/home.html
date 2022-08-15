@@ -58,6 +58,30 @@
   </div>
 </div>
 
+<tr th:each="product : ${productList}">
+    <td th:text="${product.seq}"></td>
+    <td th:text="${product.name}"></td>
+    <td th:text="${product.price}"></td>
+    <td th:text="${product.quantity}"></td>
+</tr>
+<div class="row" style="z-index: 0;">
+    <div class="col-lg-3 col-md-6 mb-3" th:each="itemList : ${itemList}">
+        <div class="card" style="width: 20rem;">
+
+            <img th:src="@{${#strings.arraySplit(itemList.imgpath,'@')[0]}}" class="card-img-top" alt="...">
+<!--            <img th:src="@{/video_view/3/logo.jpg}" class="card-img-top" alt="...">-->
+            <div class="card-body">
+                <h5 class="card-title" th:text="${itemList.name}"></h5>
+               <h5 class="card-title" th:text="${#strings.arraySplit(itemList.imgpath,'@')[0]}"></h5>
+                <p class="card-text" th:text="${itemList.content}"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 <script type="text/javascript">
       const body = document.querySelector('body');
       const modal = document.querySelector('.modal');
@@ -108,8 +132,6 @@
                 logincheck();
              }
      }
-
-
 
 </script>
 </body>

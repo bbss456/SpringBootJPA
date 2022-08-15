@@ -11,6 +11,11 @@ spring:
       location: C:\Study_hwang\springbootimg
       max-file-size: 100MB
       max-request-size: 100MB
+  devtools:
+    livereload:
+      enabled: true
+    freemaker:
+      cache: false
 
   jpa:
     hibernate:
@@ -25,4 +30,4 @@ logging.level:
 #  org.hibernate.type: trace
 
 external:
-  imgpath: C:\Study_hwang\SideProjectImg\
+  imgpath: C:\Study_hwang\DATA\

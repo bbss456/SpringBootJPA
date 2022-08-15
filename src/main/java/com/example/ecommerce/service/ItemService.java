@@ -49,9 +49,13 @@ public class ItemService {
             String ImgpathArry = "";
             int count = 0;
             for (String Filepath : ArryFileList ) {
+                String ImagePath = "";
                 MultipartFile file = req.getFile(Filepath);
                 String filename = file.getOriginalFilename();
-                ImgpathArry += dirpath+ File.separator+filename ;
+                ImagePath = dirpath+ File.separator+filename ;
+                ImgpathArry += "/" + ImagePath.substring(ImagePath.lastIndexOf("DATA")).replace("\\", "/")
+                        .replace("DATA","video_view");
+
                 if(count != ArryFileList.length-1 ){
                     ImgpathArry += "@";
                 }
@@ -63,8 +67,5 @@ public class ItemService {
         }catch (Exception e){
             return "Fail";
         }
-
     }
-
-
 }

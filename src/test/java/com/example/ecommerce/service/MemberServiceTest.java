@@ -31,9 +31,9 @@ class MemberServiceTest {
     public void 회원가입() throws Exception {
         //given
         Member member = new Member();
-        member.setMember_id("bbsds4dd456333");
-        member.setName("황현수");
-        member.setEmail("bbss67117@gmail.com");
+        member.setMember_id("qweqeq");
+        member.setName("황현32수");
+        member.setEmail("bbs33s67117@gmail.com");
         member.setPwd("Passwd");
         member.setPhone("010-3078-1207");
         member.setRegdata(new Date());
@@ -43,6 +43,9 @@ class MemberServiceTest {
         //then
 
     }
+
+
+    
 
     @Test
     public void 중복_회원_예외() throws Exception {
@@ -76,5 +79,23 @@ class MemberServiceTest {
     @Test
     public List<Member> 회원정보조회() throws Exception {
          return memberService.findMembers();
+    }
+
+
+    @Test
+    @Rollback(value = false)
+    public void 중복조회() throws Exception {
+        //given
+        Member member = new Member();
+        member.setMember_id("qweqeq");
+        member.setName("황현32수");
+        member.setEmail("bbs33s67117@gmail.com");
+        member.setPwd("Passwd");
+        member.setPhone("010-3078-1207");
+        member.setRegdata(new Date());
+        member.setAddress(new Address("인천 ", "간석동", "1606호"));
+        //when
+        //then
+
     }
 }

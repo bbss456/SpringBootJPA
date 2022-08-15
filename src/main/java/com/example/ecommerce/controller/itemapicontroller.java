@@ -26,7 +26,7 @@ public class itemapicontroller {
 
 
 
-    @Value("${external.imgpath}")
+    @Value("${external.imgpath:@null}")
     private String imgpath;
 
 
@@ -39,6 +39,8 @@ public class itemapicontroller {
         //마지막 itemOID 값 얻기.
         Long  lastoid =itemService.getLastId() +1;
         String lastodiStr = lastoid.toString();
+        System.out.println("------------imgpath-->"+ imgpath);
+
 
         File directoryPath = new File(imgpath+lastodiStr); // 디렉토리 파일존재 여부 확인.
         
@@ -52,21 +54,9 @@ public class itemapicontroller {
         String fileNameList = req.getParameter("fileNameList"); //파일 key 이름 가져오기.
         String[] ArryFileList = fileNameList.split("@");
         String ImgpathArry=itemService.FileSave(req, dirpath.toString());
-        /* 파일 저장 */
-        /*
-        String ImgpathArry = "";
-        int count = 0;
-        for (String Filepath : ArryFileList ) {
-            MultipartFile file = req.getFile(Filepath);
-            String filename = file.getOriginalFilename();
-            ImgpathArry += dirpath.toString()+File.separator+filename ;
-            if(count != ArryFileList.length ){
-                ImgpathArry += "@";
-            }
-            File f1 = new File( dirpath.toString()+File.separator +filename);
-            file.transferTo(f1);
-        }
-          */
+
+        System.out.println("___________>IMGpathArry" + ImgpathArry);
+
         /* item DB저장하기 */
 
         Item item = new Item();
@@ -83,7 +73,6 @@ public class itemapicontroller {
         String content = req.getParameter("content");
         item.setContent(content); //상품 내용
         itemService.registration(item);
-
 
         return "item/itemregist.html";
     }

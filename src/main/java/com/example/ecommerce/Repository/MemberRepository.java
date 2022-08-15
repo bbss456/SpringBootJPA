@@ -22,7 +22,7 @@ public class MemberRepository {
 
     //ID 찾기 및 중복 확인
     public List<Member>  findById(String id){
-        return em.createQuery("select m from Member m where m.member_id = m:id ", Member.class)
+        return em.createQuery("select m from Member m where m.member_id =:id ", Member.class)
                 .setParameter("id", id )
                 .getResultList();
     }
