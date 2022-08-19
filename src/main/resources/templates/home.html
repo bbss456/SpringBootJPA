@@ -21,7 +21,7 @@
 
   <link th:href="@{/css/home.css}" rel="stylesheet" />
 
-<style >
+<style>
 
 </style>
 
@@ -40,7 +40,7 @@
     </div>
     <div class="inmodal_img">
 
-      <img id="logo" th:src="@{/images/logo.png}"/>
+      <img id="logo" th:src="@{/images/logo.png}" />
     </div>
     <div class="inmodal_input">
      <input id="id" class="memberinput" type="input" placeholder="아이디"></input>
@@ -58,82 +58,24 @@
   </div>
 </div>
 
-<tr th:each="product : ${productList}">
-    <td th:text="${product.seq}"></td>
-    <td th:text="${product.name}"></td>
-    <td th:text="${product.price}"></td>
-    <td th:text="${product.quantity}"></td>
-</tr>
 <div class="row" style="z-index: 0;">
     <div class="col-lg-3 col-md-6 mb-3" th:each="itemList : ${itemList}">
         <div class="card" style="width: 20rem; height : 25rem;">
+            <p class="card-text" th:text="${itemList.Id}"></p>
+            <a th:href="@{/itemdetail/}+${itemList.Id}">
 
-            <img th:src="@{${#strings.arraySplit(itemList.imgpath,'@')[0]}}" class="card-img-top" alt="...">
-<!--            <img th:src="@{/video_view/3/logo.jpg}" class="card-img-top" alt="...">-->
+                <img th:src="@{${#strings.arraySplit(itemList.imgpath,'@')[0]}}" class="card-img-top" alt="..." style="width:318px;height:218px;" >
+            </a>
+
             <div class="card-body">
-
                 <p class="card-text" th:text="${itemList.content}"></p>
                 <p class="card-text" th:text="${#numbers.formatInteger(itemList.price,0,'COMMA')}+원"></p>
-
             </div>
         </div>
     </div>
 </div>
 
-
-
-
-<script type="text/javascript">
-      const body = document.querySelector('body');
-      const modal = document.querySelector('.modal');
-      const btnlogin = document.getElementById('login');
-      //var iconexit = document.querySelector('.inmodal_img');
-      var exit = document.getElementById('exit');
-      let  failresult = document.querySelector('.failresult');
-      var id_value = document.getElementById('id');
-      var pwd_value = document.getElementById('pwd');
-
-      btnlogin.addEventListener('click', () => {
-
-       modal.className='modalshow';
-       console.log('로그인 버튼클릭');
-      });
-   //모달 종료
-      exit.addEventListener('click',() =>{
-        id_value.value = null;
-        pwd_value.value = null;
-        console.log('exit');
-        modal.className='modal';
-      });
-     // 로그인 체크
-      function logincheck() {
-        fetch("http://localhost:8080/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            id: id_value.value,
-            pwd: pwd_value.value,
-          }),
-        })
-      .then((response) => response.json())
-      .then((data) =>  {
-       console.log(data);
-       console.log(data.result);
-       if(data.result =="Success") {
-        window.location.href = "http://localhost:8080";
-         failresult.innerHTML =null;
-       } else { failresult.innerHTML = "회원 정보가 다릅니다.";}
-       })
-     }
-     function enterkey(){
-        if (window.event.keyCode == 13) {
-                // 엔터키가 눌렸을 때
-                logincheck();
-             }
-     }
-
+<script type="text/javascript" th:src="@{/js/home.js}"></script>
 </script>
 </body>
 </html>

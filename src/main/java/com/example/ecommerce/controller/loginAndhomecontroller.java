@@ -38,12 +38,7 @@ public class loginAndhomecontroller {
         Item item = new Item();
         List<Item> itemList = itemService.findItems(item);
         ArrayList<String> ImgLogo = new ArrayList<String>();
-        for(Item item1 : itemList){
-            ImgLogo.add(item1.getImgpath().split("@")[0]);
-        }
-
         model.addAttribute("itemList" ,itemList);
-        model.addAttribute("ImgLogo",ImgLogo);
         return "home.html";
     }
 

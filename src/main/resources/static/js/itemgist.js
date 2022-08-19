@@ -134,8 +134,14 @@ function itemsend(){
      })
     .then((response) => response.json())
     .then((data) => {
-     console.log(data);
-     console.log(data.result);
+     if(data.result =='성공') {
+          console.log(data.result);
+          alert("상품등록이 완료되었습니다.");
+          window.location.replace("http://localhost:8080/itemregister");
+     }else{
+        alert("상품등록 실패하였습니다.");
+        window.location.replace("http://localhost:8080/itemregister");
+      }
      })
     }
 }
