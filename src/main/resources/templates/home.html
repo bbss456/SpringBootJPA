@@ -62,7 +62,7 @@
     <div class="col-lg-3 col-md-6 mb-3" th:each="itemList : ${itemList}">
         <div class="card" style="width: 20rem; height : 25rem;">
             <p class="card-text" th:text="${itemList.Id}"></p>
-            <a th:href="@{/itemdetail/}+${itemList.Id}">
+            <a th:href="@{/item/detail/}+${itemList.Id}">
 
                 <img th:src="@{${#strings.arraySplit(itemList.imgpath,'@')[0]}}" class="card-img-top" alt="..." style="width:318px;height:218px;" >
             </a>
