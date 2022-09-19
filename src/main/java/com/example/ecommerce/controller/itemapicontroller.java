@@ -40,8 +40,6 @@ public class itemapicontroller {
         //마지막 itemOID 값 얻기.
         Long  lastoid =itemService.getLastId() +1;
         String lastodiStr = lastoid.toString();
-        System.out.println("------------imgpath-->"+ imgpath);
-
 
         File directoryPath = new File(imgpath+lastodiStr); // 디렉토리 파일존재 여부 확인.
         
@@ -56,7 +54,6 @@ public class itemapicontroller {
         String[] ArryFileList = fileNameList.split("@");
         String ImgpathArry=itemService.FileSave(req, dirpath.toString());
 
-        System.out.println("___________>IMGpathArry" + ImgpathArry);
 
         /* item DB저장하기 */
         Item item = new Item();

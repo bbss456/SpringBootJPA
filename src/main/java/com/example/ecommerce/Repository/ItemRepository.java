@@ -27,9 +27,9 @@ public class ItemRepository {
     }
 
     //이름 검색
-    public List<Item> findByName(String name){
-        return em.createQuery("select i from Item i where i.name =:name", Item.class).setParameter("name",name)
-                .getResultList();
+    public Item findByName(Long id){
+        return em.createQuery("select i from Item i where i.id =:id", Item.class).setParameter("id",id)
+                .getSingleResult();
     }
     //마지막 ID 값 조회
     public Long getLastId() {

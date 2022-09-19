@@ -9,8 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.List;
-
 
 @Controller
 public class itemcontroller {
@@ -28,8 +26,10 @@ public class itemcontroller {
     @GetMapping("/item/detail/{id}")
     public String itemdetail(@PathVariable("id") String id ,Model model) {
         model.addAttribute("id", id);
-        List<Item> item = itemService.findItemone(id);
-        item.stream().forEach(System.out::println);
+        Item item = itemService.findItemone(Long.parseLong(id));
+        System.out.println(item.getName());
+
+        model.addAttribute("ItemImgPath", item.getImgpath().toString());
 
         return "item/detail.html";
     }
