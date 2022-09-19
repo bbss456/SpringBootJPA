@@ -33,54 +33,12 @@
 <body>
 <div th:replace="fragments/header :: header">-- thymeleaf header will be inserted here. --</div>
 <div class="container">
-  <div class="input-form-backgroud row">
-    <div class="input-form col-md-12 mx-auto">
-      <h4 class="mb-3">상품 등록 </h4>
-      <a th:text ="${id}"> </a>
-
-      <div class="mb-3">
-        <input type="text" class="form-control" id="name" name="id" placeholder="상품 타이틀"required>
-      </div>
-
-      <div class="mb-3">
-        <input type="text" class="form-control" id="price" name="price" placeholder="가격" onkeyup="inputNumberFormat(this)" required >
-      </div>
 
 
-      <div class="row">
-        <div class="col-md-6 mb-3">
-          <input type="text" class="form-control" id="itemscount" name="itemscount" onkeyup="inputNumberFormat(this)" placeholder="수량" required>
-        </div>
-        <div class="col-md-6 mb-3">
-          <select class="custom-select d-block " id="category" name="category" placeholder="카테고리">
-            <option>카테고리 선택</option>
-            <option>상의</option>
-            <option>하의</option>
-            <option>신발</option>
-            <option>용품</option>
-            <option>스포츠</option>
-            <option>기타</option>
-          </select>
-        </div>
-      </div>
-      <div class="mb-1" th:text="파일업로드">
-      </div>
-      <div class="form-group" style="height: 3%;">
-        <input type="file" multiple enctype='multipart/form-data'  accept=".jpg,.jpeg,.png,.gif,.bmp" id="exampleInputFile" onchange="addFile(this);">
-      </div>
-      <div class="mb-1">
-        <div class="file-list" id="file_list"></div>
-      </div>
-      <div class="mb-1" th:text="상품소개" style="padding-top: 10px;">
-      </div>
-      <div class="mb-3">
-        <textarea class="form-control" id="content" rows="4"></textarea>
-      </div>
-
-      <button class="btn btn-primary btn-lg btn-block" type="submit" onclick='itemsend()'>상품 등록</button>
+    <div class="row">
+      <div class="col-8">col-8</div>
+      <div class="col-4">col-4</div>
     </div>
-  </div>
-</div>
 
 <script type="text/javascript" th:src="@{/js/itemgist.js}"></script>
 </body>

@@ -3,8 +3,6 @@ package com.example.ecommerce.controller;
 
 import com.example.ecommerce.domain.Item;
 import com.example.ecommerce.service.ItemService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
@@ -28,10 +26,6 @@ import java.util.Map;
 
 @RestController
 public class itemapicontroller {
-
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
-
-
 
     @Value("${external.imgpath:@null}")
     private String imgpath;

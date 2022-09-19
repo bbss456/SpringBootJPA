@@ -34,7 +34,7 @@ public class ItemService {
 
     @Transactional(readOnly = true)
     //이름 검색
-    public List<Item> findItemone(Item item) {return itemRepository.findByName(item.getName());}
+    public List<Item> findItemone(String item) {return itemRepository.findByName(item.getName());}
 
     //마지막 ID값 얻기
     public Long getLastId() {
