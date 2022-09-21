@@ -35,11 +35,15 @@
 <div class="container-fluid">
 
 
-
     <div class="row" style="float: none; margin:100 auto;">
       <div class="col-8" style="float: none; margin:100 auto;">
-        <img th:src="@{${#strings.arraySplit(ItemImgPath,'@')[0]}}" class="card-img-top" alt="..." >
-
+        <div class="row" style="z-index: 0;">
+        <div class="col-lg-6 mb-3 " th:each="ItemImgPath : ${ItemImgPath}">
+          <div class="card" >
+              <img th:src="@{${ItemImgPath.ImagePath}}" class="card-img-top" alt="...">
+          </div>
+        </div>
+        </div>
       </div>
       <div class="col-4">col-4</div>
     </div>
