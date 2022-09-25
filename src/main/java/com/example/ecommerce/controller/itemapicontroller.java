@@ -58,17 +58,17 @@ public class itemapicontroller {
         /* item DB저장하기 */
         Item item = new Item();
         String name = req.getParameter("name");
-        item.setName(name);//상품 이름
+        item.setName(name);
         int Itemcount = Integer.parseInt(req.getParameter("itemscount").replace(",",""));
-        item.setItemCount(Itemcount); //수량
+        item.setItemCount(Itemcount);
         int Price = Integer.parseInt(req.getParameter("price").replace(",",""));
-        item.setPrice(Price); //가격
+        item.setPrice(Price);
         String category = req.getParameter("category");
-        item.setCategory(category);//카테고리
-        item.setRegdata(new Date()); //등록 날짜
-        item.setImgpath(ImgpathArry); // 이미지 경로
+        item.setCategory(category);
+        item.setRegdata(new Date());
+        item.setImgpath(ImgpathArry);
         String content = req.getParameter("content");
-        item.setContent(content); //상품 내용
+        item.setContent(content);
         Long GetId =itemService.registration(item);
 
         Map <String,String> datamap = new HashMap<String,String>();

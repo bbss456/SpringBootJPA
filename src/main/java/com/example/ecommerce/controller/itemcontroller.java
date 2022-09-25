@@ -27,16 +27,20 @@ public class itemcontroller {
         return "item/itemregist.html";
     }
 
+    /**
+     * 상품 디테일 확인. 실무 에선 requestDTO , responseDTP 만들어서 할 것.
+     * @param id
+     * @param model
+     * @return
+     */
     @GetMapping("/item/detail/{id}")
     public String itemdetail(@PathVariable("id") String id ,Model model) {
         model.addAttribute("id", id);
         Item item = itemService.findItemone(Long.parseLong(id));
-        System.out.println(item.getName());
 
         String[] imgpathArr = item.getImgpath().split("@");
 
         List<ImgPathDTO> ImgPathList  = new ArrayList<>();
-
 
         for(String imgPath : imgpathArr) {
            ImgPathDTO imgPathDTO = new ImgPathDTO() ;
@@ -45,6 +49,8 @@ public class itemcontroller {
         }
 
         model.addAttribute("ItemImgPath", ImgPathList);
+        model.addAttribute("ImgSize", ImgPathList.size());
+        model.addAttribute("ItemInfo", item);
 
         return "item/detail.html";
     }

@@ -35,14 +35,25 @@ class ItemServiceTest {
         //given
         Item item = new Item();
 
-        item.setName("TestI2tem");
+        item.setId(79L);
+        item.setName("TestI23tem");
         item.setItemCount(2123);
         item.setRegdata(new Date());
         item.setImgpath("c:/test");
         item.setContent("테스트 2상품입니다.");
 
+        Item item2 = new Item();
+        item2.setId(78L);
+        item2.setName("TestI23tem");
+        item2.setItemCount(2123);
+        item2.setRegdata(new Date());
+        item2.setImgpath("c:/test");
+        item2.setContent("테스트 2상품입니다.");
+
+
         //when
         Long item_id = itemService.registration(item);
+        Long item_id2 = itemService.registration(item2);
 
         //then
         System.out.println("item_id: " + item_id);

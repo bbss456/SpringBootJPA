@@ -35,17 +35,46 @@
 <div class="container-fluid">
 
 
+
     <div class="row" style="float: none; margin:100 auto;">
       <div class="col-8" style="float: none; margin:100 auto;">
         <div class="row" style="z-index: 0;">
-        <div class="col-lg-6 mb-3 " th:each="ItemImgPath : ${ItemImgPath}">
-          <div class="card" >
-              <img th:src="@{${ItemImgPath.ImagePath}}" class="card-img-top" alt="...">
-          </div>
-        </div>
+
+          <th:block th:if="${ImgSize} > 3">
+            <div class="col-lg-6 mb-3 " th:each="ItemImgPath : ${ItemImgPath}">
+              <div class="card" >
+                <img th:src="@{${ItemImgPath.ImagePath}}" class="card-img-top" alt="...">
+              </div>
+            </div>
+          </th:block>
+
+          <th:block th:if="${ImgSize} < 3">
+            <div class="col-lg-12 mb-3 " th:each="ItemImgPath : ${ItemImgPath}">
+              <div class="card" >
+                <img th:src="@{${ItemImgPath.ImagePath}}" class="card-img-top" alt="...">
+              </div>
+            </div>
+          </th:block>
+
         </div>
       </div>
-      <div class="col-4">col-4</div>
+      <div class="col-4">
+        <div class="col d-flex align-items-start">
+          <div>
+            <h2 th:text="${ItemInfo.name}">Featured title</h2>
+            <p th:text="${ItemInfo.content}"></p>
+            <span>수량</span>
+            <span id="ItemCount">0</span>
+            <input type='button' onclick='count("plus")'  value='+' />
+            <input type='button' onclick='count("minus")' value='-'/>
+            <div class="mb-3"> </div>
+            <h5> 가격 <span class="badge bg-secondary" th:text="${ItemInfo.price}"> </span> </h5>
+            <a href="#" class="btn btn-primary">
+              상품 주문하기
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
 
 <script type="text/javascript" th:src="@{/js/itemgist.js}"></script>

@@ -23,7 +23,7 @@ public class MemberService {
      */
     @Transactional
     public String  join(Member member){
-        vaildateDuplicateMember(member);
+       vaildateDuplicateMember(member);
         memberRepository.save(member);
         return member.getMember_id();
     }
