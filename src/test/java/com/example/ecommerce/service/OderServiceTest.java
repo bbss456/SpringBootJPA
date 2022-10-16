@@ -1,10 +1,7 @@
 package com.example.ecommerce.service;
 
 import com.example.ecommerce.Repository.OrdersRepository;
-import com.example.ecommerce.domain.Address;
-import com.example.ecommerce.domain.Member;
-import com.example.ecommerce.domain.Order;
-import com.example.ecommerce.domain.OrderStatus;
+import com.example.ecommerce.domain.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +9,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.Date;
-
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
@@ -30,15 +25,29 @@ class OderServiceTest {
     @PersistenceContext
     EntityManager em ;
 
+    @Autowired
+    ItemService itemService;
+
     @Test
     @Rollback(value = false)
-    public void 주문등록(){
+    public void 주문등록() {
        Order order = new Order();
        Member member = createMember();
        order.setMember(member);
-       order.setStatus(OrderStatus.CANCLE);
-       oderService.registrationorder(order);
+       order.setStatus(OrderStatus.ORDER);
 
+       Delivery delivery = new Delivery();
+       delivery.setStatus(DeliveryStatus.READY);
+       delivery.setAddress(new Address("인천광역시", "간석동", "1106호"));
+
+       Item item = itemService.findItemone(16L);
+
+       OrderItem orderItem = new OrderItem();
+       orderItem = orderItem.createOrderItem(item, 3L, 3);
+
+       order = order.createOrder(member, delivery, orderItem);
+
+       oderService.registrationorder(order);
    }
 
    public Member createMember() {
