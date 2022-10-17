@@ -32,7 +32,6 @@ function checkZero(Count){
     return returnCount;
 }
 
-
 function orderItem() {
 gameToken
     let itemid = document.getElementById('itemId').value;
