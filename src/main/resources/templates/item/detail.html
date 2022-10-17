@@ -32,9 +32,9 @@
 
 <body>
 <div th:replace="fragments/header :: header">-- thymeleaf header will be inserted here. --</div>
+<input type=hidden id="userId" th:value="${session.SID}" hidden="hidden"></input>
+
 <div class="container-fluid">
-
-
 
     <div class="row" style="float: none; margin:100 auto;">
       <div class="col-8" style="float: none; margin:100 auto;">
@@ -55,7 +55,6 @@
               </div>
             </div>
           </th:block>
-
         </div>
       </div>
       <div class="col-4">
@@ -63,19 +62,21 @@
           <div>
             <h2 th:text="${ItemInfo.name}">Featured title</h2>
             <p th:text="${ItemInfo.content}"></p>
+            <input type="hidden" id="itemId" th:value="${ItemInfo.id}"hidden="hidden"></input>
             <span>수량</span>
             <span id="ItemCount">1</span>
             <input type='button' name="btnItemCount" onclick='count("plus")'  value='+' />
             <input type='button' name="btnItemCount" onclick='count("minus")' value='-'/>
             <div class="mb-3"> </div>
             <h5> 가격 <span class="badge bg-secondary" id="itemprice" th:text="${ItemInfo.price}"> </span> </h5>
-            <a href="#" class="btn btn-primary">
+            <a href="#" id="itemOrder" class="btn btn-primary" onclick="orderItem()">
               상품 주문하기
             </a>
           </div>
         </div>
       </div>
     </div>
+</div>
 
 <script type="text/javascript" th:src="@{/js/itemdetail.js}"></script>
 

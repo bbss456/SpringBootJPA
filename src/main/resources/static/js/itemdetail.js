@@ -1,5 +1,5 @@
 const oneitemPrice = document.getElementById('itemprice').innerText;
-
+let itemOrder = document.getElementById('oneitemPrice');
 function count(button) {
     let itemPrice = document.getElementById('itemprice');
     let itemCount = document.getElementById('ItemCount');
@@ -31,3 +31,33 @@ function checkZero(Count){
     }
     return returnCount;
 }
+
+function orderItem() {
+gameToken
+    let itemid = document.getElementById('itemId').value;
+    var userId = document.getElementById('userId');
+    var gameToken = document.getElementById('gameToken');
+    console.log(userId);
+    console.log(userId.value);
+
+//.elements;
+//        fetch("http://localhost:8080/login", {
+//          method: "POST",
+//          headers: {
+//            "Content-Type": "application/json",
+//          },
+//          body: JSON.stringify({
+//            id: id_value.value,
+//            pwd: pwd_value.value,
+//          }),
+//        })
+//      .then((response) => response.json())
+//      .then((data) =>  {
+//       console.log(data);
+//       console.log(data.result);
+//       if(data.result =="Success") {
+//        window.location.href = "http://localhost:8080";
+//         failresult.innerHTML =null;
+//       } else { failresult.innerHTML = "회원 정보가 다릅니다.";}
+//       })
+     }
