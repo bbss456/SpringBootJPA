@@ -20,7 +20,6 @@ public class itemcontroller {
     @Autowired
     ItemService itemService ;
 
-
     @GetMapping("/itemregister")
     public String itemregister(Model model) {
 
@@ -54,4 +53,6 @@ public class itemcontroller {
 
         return "item/detail.html";
     }
+
+
 }

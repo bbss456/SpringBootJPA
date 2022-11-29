@@ -34,17 +34,17 @@ public class MemberService {
             throw new IllegalStateException("이미 존재하는 회원입니다.");
         }
     }
-    //회원 전체 조회
+
     @Transactional(readOnly = true)
     public List<Member> findMembers() {
         return memberRepository.findAll();
     }
+
     @Transactional(readOnly = true)
     public Member findOne(String memberID){
         return memberRepository.findOne(memberID);
     }
-    
-    //로그인 체크 확인
+
     @Transactional(readOnly = true)
     public Member logincheck(HashMap<String, Object> map){
         String id = (String) map.get("id");

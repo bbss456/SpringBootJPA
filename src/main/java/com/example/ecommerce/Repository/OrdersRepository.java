@@ -18,6 +18,4 @@ public class OrdersRepository {
         em.persist(order);
        return order.getOid();
     }
-
-
 }
