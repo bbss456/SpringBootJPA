@@ -35,23 +35,18 @@ public class OrderController {
 
     @PostMapping("/api/item/order")
     public ResponseEntity<Boolean>  saveOrderItem(@RequestBody OrdersaveDTO ordersaveDTO) {
-        Order order = new Order();
-        Member member = memberService.findOne("1");
-        order.setMember(member);
-        order.setStatus(OrderStatus.ORDER);
+
+        Member member = memberService.findOne(ordersaveDTO.getMemberId());
 
         Delivery delivery = new Delivery();
         delivery.setStatus(DeliveryStatus.READY);
         delivery.setAddress(new Address(ordersaveDTO.getCity(),ordersaveDTO.getStreet(), ordersaveDTO.getZipcode()));
 
-        Item item = itemService.findItemone(16L);
+        Item item = itemService.findItemone(ordersaveDTO.getItemId());
 
-        OrderItem orderItem = new OrderItem();
-        orderItem = orderItem.createOrderItem(item, 3L, 3);
+        OrderItem orderItem=OrderItem.createOrderItem(item, ordersaveDTO.getItemPrice(), ordersaveDTO.getItemCount());
 
-        order = order.createOrder(member, delivery, orderItem);
-
-        oderService.registrationorder(order);
+        oderService.registrationorder(Order.createOrder(member,delivery,orderItem));
 
         return new ResponseEntity<>(true, this.header(), HttpStatus.OK);
     }

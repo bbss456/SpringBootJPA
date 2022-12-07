@@ -1,15 +1,12 @@
 package com.example.ecommerce.domain;
 
-
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 
 @Entity
 @Getter @Setter
@@ -39,5 +36,4 @@ public class Member {
     @Temporal(TemporalType.DATE)
     @Column
     private Date regdata ;
-
 }

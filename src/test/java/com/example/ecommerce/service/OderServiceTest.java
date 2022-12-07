@@ -1,6 +1,7 @@
 package com.example.ecommerce.service;
 
-import com.example.ecommerce.Repository.OrdersRepository;
+import com.example.ecommerce.Dto.ResponseItemWithInfoDTO;
+import com.example.ecommerce.Repository.OrderRepository;
 import com.example.ecommerce.domain.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -9,9 +10,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
@@ -19,7 +23,7 @@ import java.util.Date;
 class OderServiceTest {
 
     @Autowired
-    OrdersRepository ordersRepository;
+    OrderRepository ordersRepository;
     @Autowired
     OderService oderService;
     @PersistenceContext
@@ -63,4 +67,20 @@ class OderServiceTest {
        return member;
    }
 
+   @Test
+   public void 아이템_찾기() {
+       List<Order> orderList =  ordersRepository.findAllWithItem("admin");
+
+       List<ResponseItemWithInfoDTO> responseItemWithInfoDTOList =orderList.stream().map(order ->
+               new ResponseItemWithInfoDTO(order.getOrderitmes().get(0).getItems().getName(),
+                       order.getOrderitmes().get(0).getCount(),
+                       order.getOrderitmes().get(0).getOrderPrice(),
+                       order.getDelivery().getStatus(),
+                       order.getOrderdata()))
+               .collect(Collectors.toList());
+
+       for (ResponseItemWithInfoDTO responseItemWithInfoDTO : responseItemWithInfoDTOList) {
+          System.out.println( responseItemWithInfoDTO.toString());
+       }
+   }
 }

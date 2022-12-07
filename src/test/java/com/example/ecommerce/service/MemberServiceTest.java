@@ -44,9 +44,6 @@ class MemberServiceTest {
 
     }
 
-
-    
-
     @Test
     public void 중복_회원_예외() throws Exception {
         //given
@@ -94,8 +91,6 @@ class MemberServiceTest {
         member.setPhone("010-3078-1207");
         member.setRegdata(new Date());
         member.setAddress(new Address("인천 ", "간석동", "1606호"));
-        //when
-        //then
-
     }
+
 }

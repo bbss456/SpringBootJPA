@@ -51,4 +51,5 @@ public class MemberService {
         String pwd = (String) map.get("pwd");
         return memberRepository.logincheck(id, pwd);
     }
+
 }

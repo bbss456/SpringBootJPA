@@ -51,6 +51,12 @@ public class MemberRepository {
                 .getSingleResult();
     }
 
-
+    public List<Member> findMemberItem(String id){
+        return em.createQuery("select distinct m from Member m " +
+                "join fetch m.orders " +
+                "where m.member_id =:id", Member.class)
+                .setParameter("id", id )
+                .getResultList();
+    }
 
 }

@@ -25,8 +25,7 @@
     <th:block th:if="${session.Name =='관리자'}">
       <a th:href="@{/itemregister}" style="text-align:right; color: #0c5460; font-size: 10px; " >상품등록</a>
     </th:block>
-
-    <a class="" href="" style="color: #0c5460;font-size: 10px;">문의 사항</a>
+    <a class="" href="/item/itemlist" style="color: #0c5460;font-size: 10px;">상품 조회</a>
     <a href="#" id="login"  th:if="${session.SID eq null}" style="color: #0c5460;font-size: 10px;">로그인</a>
     <th:block th:unless="${session.SID eq null}">
       <label th:text="${session.Name}" style="color: #0c5460;font-size: 10px;"></label>

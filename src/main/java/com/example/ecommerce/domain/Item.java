@@ -1,6 +1,7 @@
 package com.example.ecommerce.domain;
 
 import com.example.ecommerce.NotEnoughStockException;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
@@ -32,6 +33,7 @@ public class Item {
 
  private int ItemCount;
  @OneToMany(mappedBy = "items",fetch = FetchType.LAZY ,cascade = CascadeType.ALL)
+ @JsonIgnore
  List<OrderItem> OrderItems = new ArrayList<>();
 
  @CreatedDate
