@@ -33,31 +33,35 @@ function checkZero(Count){
 }
 
 function orderItem() {
-gameToken
-    let itemid = document.getElementById('itemId').value;
+    let itemid = document.getElementById('itemId');
     var userId = document.getElementById('userId');
     var gameToken = document.getElementById('gameToken');
-    console.log(userId);
+    let itemPrice = document.getElementById('itemprice');
+    let itemCount = document.getElementById('ItemCount');
+
+
     console.log(userId.value);
 
-//.elements;
-//        fetch("http://localhost:8080/login", {
-//          method: "POST",
-//          headers: {
-//            "Content-Type": "application/json",
-//          },
-//          body: JSON.stringify({
-//            id: id_value.value,
-//            pwd: pwd_value.value,
-//          }),
-//        })
-//      .then((response) => response.json())
-//      .then((data) =>  {
-//       console.log(data);
-//       console.log(data.result);
-//       if(data.result =="Success") {
-//        window.location.href = "http://localhost:8080";
-//         failresult.innerHTML =null;
-//       } else { failresult.innerHTML = "회원 정보가 다릅니다.";}
-//       })
-     }
+    if(userId.value == "") {
+        alert("로그인 부탁 드립니다.");
+    }
+       fetch("http://localhost:8080/api/item/order", {
+         method: "POST",
+         headers: {
+           "Content-Type": "application/json",
+         },
+         body: JSON.stringify({
+            "memberId" : userId.value,
+            "itemId": itemid.value,
+            "itemPrice" : itemPrice.value,
+            "itemCount" :itemCount.value,
+            "city" : "인천",
+            "street" : "부평구 십정동",
+            "String" : "2150"
+         }),
+       })
+     .then((response) => response.json())
+     .then((data) =>  {
+      console.log(data);
+      })
+}
