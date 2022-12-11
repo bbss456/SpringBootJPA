@@ -5,8 +5,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 
 @Data
 public class ResponseItemWithInfoDTO {
@@ -22,7 +20,6 @@ public class ResponseItemWithInfoDTO {
         this.count = count;
         this.price = price;
         this.deliveryStatus = deliveryStatus;
-        orderDate.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG));
         this.orderDate = orderDate;
     }
 
