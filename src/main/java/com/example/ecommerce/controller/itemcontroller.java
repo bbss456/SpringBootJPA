@@ -62,6 +62,7 @@ public class itemcontroller {
 
     @GetMapping("/item/itemlist")
     public String itemlist(Model model, HttpSession session) {
+
         String id = (String) session.getAttribute("SID");
 
         model.addAttribute("orderItemList",oderService.findOrderItem(id));
